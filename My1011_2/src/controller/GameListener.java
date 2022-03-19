@@ -6,21 +6,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 
 import view.GameForm;
-
+import java.io.IOException;
 public class GameListener implements ActionListener, MouseListener {
 	private GameForm gameForm;
 	
-	public GameListener(GameForm gameForm) {
+	public GameListener(GameForm gameForm){
 		this.gameForm = gameForm;
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e){ //Exception ioException is not compatible with throws
 		// TODO Auto-generated method stub
+		// ===== save game =====
+		String textAction = e.getActionCommand();
+		if (textAction.equals("Save")) {
+			this.gameForm.saveGame();
+			System.out.println("Save thanh cong!!!");
+		}
+		
 		for(int i=0; i<10; i++) {
 			for(int j=0; j<10; j++) {
 				if(e.getSource()==this.gameForm.getSquares()[i][j]) {

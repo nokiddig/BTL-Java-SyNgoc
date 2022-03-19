@@ -1,12 +1,21 @@
 package model;
+/* ====== code moi them ======
+variable: 
+	- listBlockColor
+add code:
+ 	- color cho listBlockColor tai gameModel()
+method:
+	- getListBlockColor
+	- addPoint
+*/
 
+import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class GameModel {
-
 	private int[][] grid = new int[11][11];
 	private int score;
 	private Block[] listBlock = { new block1x1(), 
@@ -28,6 +37,7 @@ public class GameModel {
 								  new blockMinL2(),
 								  new blockMinL3(),
 								  new blockMinL4()};
+	private Color[] listBlockColor = new Color[19];
 	private Random r = new Random();
 	private Block currBlock =  listBlock[r.nextInt(listBlock.length)];
 	private Block nextBlock =  listBlock[r.nextInt(listBlock.length)];
@@ -39,6 +49,12 @@ public class GameModel {
 //			}
 //		}
 		score = 0;
+		for (int i=0; i<19; i++) 
+			listBlockColor[i] = listBlock[i].getColor();
+	}
+	
+	public Color[] getListBlockColor(){
+		return this.listBlockColor;
 	}
 	
 	public Block getCurrBlock() {
@@ -63,6 +79,7 @@ public class GameModel {
 		}
 		return true;
 	}
+	
 	public boolean checkFullY(int y) {
 		for(int i=0; i<10; i++) {
 			if(grid[i][y] == 0) return false;
@@ -85,10 +102,15 @@ public class GameModel {
 		for(int i=0; i<shape.length; i++) {
 			grid[x + shape[i].x][y+shape[i].y] = 1;
 		}
-		
 		this.currBlock = this.nextBlock;
 		this.nextBlock =  listBlock[r.nextInt(listBlock.length)];
 	}
+	
+	public void addGridPoint(int x, int y) {
+		this.grid[x][y] = 1;
+		
+	}
+	
 	public void deleteRow(int x) {
 		for(int i=0; i<10; i++) {
 			grid[x][i] = 0;
