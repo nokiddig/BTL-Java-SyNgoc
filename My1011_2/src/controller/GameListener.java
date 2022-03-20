@@ -22,13 +22,6 @@ public class GameListener implements ActionListener, MouseListener {
 	@Override
 	public void actionPerformed(ActionEvent e){ //Exception ioException is not compatible with throws
 		// TODO Auto-generated method stub
-		// ===== save game =====
-		String textAction = e.getActionCommand();
-		if (textAction.equals("Save")) {
-			this.gameForm.saveGame();
-			System.out.println("Save thanh cong!!!");
-		}
-		
 		for(int i=0; i<10; i++) {
 			for(int j=0; j<10; j++) {
 				if(e.getSource()==this.gameForm.getSquares()[i][j]) {

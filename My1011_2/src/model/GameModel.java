@@ -108,7 +108,6 @@ public class GameModel {
 	
 	public void addGridPoint(int x, int y) {
 		this.grid[x][y] = 1;
-		
 	}
 	
 	public void deleteRow(int x) {
@@ -143,4 +142,10 @@ public class GameModel {
 		this.score = score;
 	}
 	
+	public void resetBoard() {
+		// TODO Auto-generated method stub
+		this.score = 0;
+		for (int i=0; i<10; i++)
+			this.deleteRow(i);
+	}
 }
