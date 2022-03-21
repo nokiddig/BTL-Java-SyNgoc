@@ -48,9 +48,9 @@ public class GameInfo extends JPanel {
 //		GridBagConstraints gb = new GridBagConstraints();
 		Border border = BorderFactory.createLineBorder(Color.black, 1);
 		// Top
-		Font font1 = new Font("Serif", Font.ITALIC, 28);
+		
 		// jpanel score
-		this.setupJpPlayerInfo(border, font1);
+		this.setupJpPlayerInfo(border);
 		
 		this.add(this.jpPlayerInfo, BorderLayout.NORTH);
 		//Center
@@ -101,8 +101,9 @@ public class GameInfo extends JPanel {
 		this.setVisible(true);
 	}
 	
-	public void setupJpPlayerInfo(Border border, Font font1) {
+	public void setupJpPlayerInfo(Border border) {
 		Font font = new Font("Arial", Font.ITALIC, 20);
+		Font font1 = new Font("Serif", Font.ITALIC|Font.BOLD, 25);
 		jpPlayerInfo = new JPanel(new GridLayout(2, 1, 10, 10));
 		jpPlayerInfo.setBorder(BorderFactory.createTitledBorder(border, "Information", TitledBorder.CENTER , TitledBorder.DEFAULT_POSITION, font1));
 		
