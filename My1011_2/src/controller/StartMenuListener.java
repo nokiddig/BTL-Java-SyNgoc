@@ -23,7 +23,7 @@ public class StartMenuListener implements ActionListener, MouseListener {
 		// TODO Auto-generated method stub
 		// ===== save game =====
 		String textAction = e.getActionCommand();
-		if(textAction.equals("Start game") == true) {
+		if(textAction.equals("New game!") == true) {
 			startMenu.creatNewGame();
 		}
 		if(textAction.equals("How to play") == true) {

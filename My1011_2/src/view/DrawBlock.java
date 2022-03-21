@@ -25,9 +25,9 @@ public class DrawBlock extends JPanel {
 	private void draw (Graphics g) {
 		for(int i=0; i<bl.getShape().length; i++) {
 			g.setColor(bl.getColor());
-			g.fillRect(90 + bl.getShape()[i].y*40, 110 + bl.getShape()[i].x*40, 40, 40);
+			g.fillRect(90 + bl.getShape()[i].y*40, 120 + bl.getShape()[i].x*40, 40, 40);
 			g.setColor(Color.gray);
-			g.drawRect(90 + bl.getShape()[i].y*40, 110 + bl.getShape()[i].x*40, 40, 40);
+			g.drawRect(90 + bl.getShape()[i].y*40, 120 + bl.getShape()[i].x*40, 40, 40);
 		}
 	}
 	

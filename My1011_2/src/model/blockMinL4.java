@@ -14,6 +14,6 @@ public class blockMinL4 extends Block {
 		shape = new Point[3];
 		shape[0] = new Point(-1, 0);
 		shape[1] = new Point(0, 0);
-		shape[2] = new Point(1, 0);
+		shape[2] = new Point(0, 1);
 	}
 }

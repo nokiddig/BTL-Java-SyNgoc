@@ -106,6 +106,17 @@ public class GameModel {
 		this.nextBlock =  listBlock[r.nextInt(listBlock.length)];
 	}
 	
+	public boolean checkGameOver() {
+		for (int i=0; i<10; i++)
+			for (int j=0; j<10; j++) {
+				if (grid[i][j]==0) {
+					if(CheckAvai(i, j))
+						return false;
+				}
+			}
+		return true;
+	}
+	
 	public void addGridPoint(int x, int y) {
 		this.grid[x][y] = 1;
 	}

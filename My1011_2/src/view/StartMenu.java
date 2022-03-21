@@ -33,7 +33,7 @@ public class StartMenu extends JFrame{
 		JPanel jpListItems  = new JPanel(new GridLayout(3, 1, 100, 100));
 		jpListItems.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 		
-		jbStartGame = new JButton("Start game");
+		jbStartGame = new JButton("New game!");
 		jbContinue = new JButton("Continue");
 		jbHowToPlay = new JButton("How to play");
 		

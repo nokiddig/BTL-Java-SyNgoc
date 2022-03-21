@@ -157,6 +157,14 @@ public class GameForm extends JFrame{
 			
 			this.gameModel.addBlock(x, y); // đổi từng ô từ 0 thành 1
 			this.gameInfo.reDrawBlock();
+			if (gameModel.checkGameOver()) {
+				JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+		        JOptionPane.showMessageDialog(frame,
+		                "Thua rồi bạn ơi! Reset game nhé!",
+		                "Game over title.",
+		                JOptionPane.NO_OPTION);
+		        resetBoard();
+			}
 		}
 		delete();
 	}
@@ -166,12 +174,24 @@ public class GameForm extends JFrame{
 	}
 	
 	public void deleteRow(int x) {
+		try {
+			Thread.sleep(150);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		for(int i=0; i<10; i++) {
 			squares[x][i].setBackground(Color.white);
 		}
 	}
 	
 	public void deleteCol(int y) {
+		try {
+			Thread.sleep(150);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		for(int i=0; i<10; i++) {
 			squares[i][y].setBackground(Color.white);
 		}
@@ -181,6 +201,7 @@ public class GameForm extends JFrame{
 		this.gameModel.delete();
 		for(int i:this.gameModel.listFullX) deleteRow(i);
 		for(int i:this.gameModel.listFullY) deleteCol(i);
+		this.gameInfo.updateScore(gameModel.getScore());
 	}
 	
 	public void resetBoard() {
@@ -188,6 +209,5 @@ public class GameForm extends JFrame{
 		this.gameModel.resetBoard();
 		for (int i=0; i<10; i++)
 			deleteRow(i);
-			
 	}
 }
